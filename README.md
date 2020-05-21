@@ -1,2 +1,2 @@
-# abide-code
+# ABIDE-code
 Código tesis - neuroimágenes
