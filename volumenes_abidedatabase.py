@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 abide_folder = '/home/jullygh/preprocess_ABIDE' if 'NODE' in os.getenv('HOSTNAME') else '/home/jpgonzalezh/Documents/descargas_servidor' 
 print(abide_folder)
 
-exit()
 def find_nii_files(nii_filename):
        'Busca archivos nifti con el nombre nii_filename'   
        nii_files = []
