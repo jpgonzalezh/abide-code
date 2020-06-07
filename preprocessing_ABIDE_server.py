@@ -52,7 +52,7 @@ for nii_file in nii_files:
     os.makedirs(output_folder_subject, exist_ok=True)
     print(f'preprocessing subject: {id_subject}')
     out_file_base = os.path.join(output_folder_subject, 'affineoutput')
-    cmd = f'antsRegistrationSyNQuick.sh -d 3 -f {nii_file} -m {template} -o {out_file_base}'    
+    cmd = f'antsRegistrationSyNQuick.sh -d 3 -f {nii_file} -m {template} -o {out_file_base} -t a'    
     cmd2 = f'antsApplyTransforms -d 3  -i {atlas} -r {nii_file} -t {output_folder_subject}/affineoutput0GenericAffine.mat -o {output_folder_subject}/mask_output_spm.nii.gz'
     cmd3 = f'antsApplyTransforms -d 3  -i {caudateRight} -r {nii_file} -t {output_folder_subject}/affineoutput0GenericAffine.mat -o {output_folder_subject}/caudateRight_output.nii.gz'
     cmd4 = f'antsApplyTransforms -d 3  -i {caudateLeft} -r {nii_file} -t {output_folder_subject}/affineoutput0GenericAffine.mat -o {output_folder_subject}/caudateLeft_output.nii.gz'
@@ -85,6 +85,7 @@ for nii_file in nii_files:
     os.system(cmd14)
     os.system(cmd15)
     os.system(cmd16)
+    os.system(f'find {output_folder_subject} -name "*ffine*.nii* -delete"')
     
 
 # matlab -nodisplay -nosplash -nodesktop -r "run('path/to/your/script.m');exit;"
