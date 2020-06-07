@@ -46,13 +46,13 @@ for nii_file in nii_files:
     # id_subject = nii_file.split('/')[5]
     print(id_subject)
     output_folder_subject = os.path.join(output_folder, id_subject)
-    # Si existe la segmentación de materia gris ignorar
-    if os.path.isfile(join(output_folder_subject, 'GM.nii.gz')):
-        continue
+    ## Si existe la segmentación de materia gris ignorar
+    # if os.path.isfile(join(output_folder_subject, 'GM.nii.gz')):
+    #     continue
     os.makedirs(output_folder_subject, exist_ok=True)
     print(f'preprocessing subject: {id_subject}')
     out_file_base = os.path.join(output_folder_subject, 'affineoutput')
-    cmd = f'antsRegistrationSyNQuick.sh -d 3 -f {nii_file} -m {template} -o {out_file_base}'    
+    cmd = f'antsRegistrationSyNQuick.sh -d 3 -f {nii_file} -m {template} -o {out_file_base} -t a'    
     cmd2 = f'antsApplyTransforms -d 3  -i {atlas} -r {nii_file} -t {output_folder_subject}/affineoutput0GenericAffine.mat -o {output_folder_subject}/mask_output_spm.nii.gz'
     cmd3 = f'antsApplyTransforms -d 3  -i {caudateRight} -r {nii_file} -t {output_folder_subject}/affineoutput0GenericAffine.mat -o {output_folder_subject}/caudateRight_output.nii.gz'
     cmd4 = f'antsApplyTransforms -d 3  -i {caudateLeft} -r {nii_file} -t {output_folder_subject}/affineoutput0GenericAffine.mat -o {output_folder_subject}/caudateLeft_output.nii.gz'
