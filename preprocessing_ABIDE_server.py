@@ -85,6 +85,7 @@ for nii_file in nii_files:
     os.system(cmd14)
     os.system(cmd15)
     os.system(cmd16)
+    os.system(f'find {output_folder_subject} -name "*ffine*.nii* -delete"')
     
 
 # matlab -nodisplay -nosplash -nodesktop -r "run('path/to/your/script.m');exit;"
