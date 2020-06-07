@@ -46,9 +46,9 @@ for nii_file in nii_files:
     # id_subject = nii_file.split('/')[5]
     print(id_subject)
     output_folder_subject = os.path.join(output_folder, id_subject)
-    # Si existe la segmentación de materia gris ignorar
-    if os.path.isfile(join(output_folder_subject, 'GM.nii.gz')):
-        continue
+    ## Si existe la segmentación de materia gris ignorar
+    # if os.path.isfile(join(output_folder_subject, 'GM.nii.gz')):
+    #     continue
     os.makedirs(output_folder_subject, exist_ok=True)
     print(f'preprocessing subject: {id_subject}')
     out_file_base = os.path.join(output_folder_subject, 'affineoutput')

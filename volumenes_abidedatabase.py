@@ -35,7 +35,7 @@ def extract_cortical_volumes(nii_file, subject_id):
        'Extrae los volúmenes corticales de una parcelación'
        region_names = {
               0: 'unknown', 1:'occi_R', 2:'temp_R', 3:'subcortical_R',
-              4:'front_R', 5:'cerebellum_R', 6:'insula_R',
+              4:'frontal_R', 5:'cerebellum_R', 6:'insula_R',
               7:'pari_cingu_R', 8:'parietal R', 9:'occi_L',
               10:'null', 11:'subcortical L', 12:'frontal_L',
               13:'cerebellum_L', 14:'insula_L', 15:'pari_cingu_L',
