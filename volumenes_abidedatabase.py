@@ -35,7 +35,7 @@ def extract_cortical_volumes(nii_file, subject_id):
        'Extrae los volúmenes corticales de una parcelación'
        region_names = {
               0: 'unknown', 1:'occi_R', 2:'temp_R', 3:'subcortical_R',
-              4:'frontal_R', 5:'cerebellum_R', 6:'insula_R',
+              4:'front_R', 5:'cerebellum_R', 6:'insula_R',
               7:'pari_cingu_R', 8:'parietal R', 9:'occi_L',
               10:'null', 11:'subcortical L', 12:'frontal_L',
               13:'cerebellum_L', 14:'insula_L', 15:'pari_cingu_L',
@@ -47,6 +47,9 @@ def extract_cortical_volumes(nii_file, subject_id):
        nii = nb.load(nii_file)
        nii_data = nii.get_fdata().astype(int)
        cortical_series = pd.Series(name=subject_id, dtype='int')
+       # calculo del volumen de un voxel
+       header = nii.header.get_zooms()
+       cortical_series['voxel_vol'] = header[0]*header[1]*header[2]
        # el volumen intracraneal son todos los voxeles que no son cero
        cortical_series['ICV'] = np.where(nii_data!=0, 1, 0).sum()
        for roi_label in np.unique(nii_data):
@@ -102,7 +105,7 @@ for cortical_parcellation in cortical_parcellations:
        # Agregar volúmenes del sujeto al Dataframe
        df = df.append(subject_volumes)
 df.index.name = 'SID'
-df.to_csv('volumes.csv')
+df.to_csv('volumes_voxel.csv')
 
 print(df.head())
 print(df.shape)
