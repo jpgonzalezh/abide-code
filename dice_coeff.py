@@ -38,6 +38,8 @@ for brainmask, segmentation in zip(mprage_bet_files, dice_files):
     subject_id = segmentation.split('/')[-2]
     subject_dice = pd.Series(name=subject_id, dtype='float')
 
+    print(segmentation)
+    
     img = nb.load(brainmask)
     img = img.get_fdata()
     img = np.array(img).astype(np.bool)
