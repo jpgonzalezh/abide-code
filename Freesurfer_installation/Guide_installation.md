@@ -9,9 +9,9 @@ Pasos a seguir para realizar la instalación de Freesurfer en PC con sistema ope
 ## **Instalación desde terminal:** 
  * Abrir una terminal desde la carpeta de Downloads
  * Descomprimir el archivo de freesurfer con el comando: **sudo tar -xzvf freesurfer-linux-centos7_x86_64-7.1.0.tar.gz -C /usr/local**
- * Regresar a la terminal de inicio con *cd* y modificar el bash con el comando: **gedit .bashrc**, agregando al final:
-    **# Freesurfer path**/
-    **export FREESURFER_HOME=/usr/local/freesurfer**/
+ * Regresar a la terminal de inicio con *cd* y modificar el bash con el comando: **gedit .bashrc**, agregando al final://
+    **# Freesurfer path**//
+    **export FREESURFER_HOME=/usr/local/freesurfer**//
     **source $FREESURFER_HOME/SetUpFreeSurfer.sh**
  * Guardar y cerrar el archivo bash
  * Para actualizar el bash se corre el comando: **source .bashrc**
