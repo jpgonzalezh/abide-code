@@ -24,4 +24,6 @@ Pasos a seguir para realizar la instalación de Freesurfer en PC con sistema ope
  * Regresar a la terminal y correr el comando: **sudo gedit /usr/local/freesurfer/.license**
  * Agregar a la ventana los datos del archivo *license.txt*. Guardar y cerrar.
  * Volver a correr el comando: **mri_convert x.nii x.nii.gz**
- * Si funciona, ya puedes abrir el comando **freeview** :D
+ * Si funciona, ya puedes abrir el comando **freeview x.nii.gz**
+ * Correr el comando: **sudo dnf install mesa-libGLU**
+ * Abrir freesurfer con el comando: **freeview** :D
