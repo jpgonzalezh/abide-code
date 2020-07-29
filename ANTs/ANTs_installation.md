@@ -1,4 +1,4 @@
-# Instalación de ANTs (Advance Normalization Tools) 
+# Instalación de ANTs (Advanced Normalization Tools) 
 
 Pasos a seguir para realizar la instalación de ANTs en PC con sistema operativo Fedora 32:
 
