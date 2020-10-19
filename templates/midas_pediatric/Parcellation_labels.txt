@@ -1,0 +1,40 @@
+################################################
+# ITK-SnAP Label Description File
+# File format: 
+# IDX   -R-  -G-  -B-  -A--  VIS MSH  LABEL
+# Fields: 
+#    IDX:   Zero-based index 
+#    -R-:   Red color component (0..255)
+#    -G-:   Green color component (0..255)
+#    -B-:   Blue color component (0..255)
+#    -A-:   Label transparency (0.00 .. 1.00)
+#    VIS:   Label visibility (0 or 1)
+#    IDX:   Label mesh visibility (0 or 1)
+#  LABEL:   Label description 
+################################################
+    0     0    0    0        0  0  0    "Clear Label"
+    1   255    0    0        1  1  1    "occipital R"
+    2     0  255    0        1  1  1    "temporal R"
+    3     0    0  255        1  1  1    "subcortical R"
+    4   255  255    0        1  1  1    "frontal R"
+    5     0  255  255        1  1  1    "cerebellum R"
+    6   255    0  255        1  1  1    "insula R"
+    7   231   66    0        1  1  1    "parietal cingulate R"
+    8    69  228   50        1  1  1    "parietal R"
+    9    47   84  225        1  1  1    "occipital L"
+   10     0  192    0        1  1  1    "null"
+   11     0  221   50        1  1  1    "subcortical L"
+   12   196   17  218        1  1  1    "frontal L"
+   13    33  216  214        1  1  1    "cerebellum L"
+   14   214    7   83        1  1  1    "insula L"
+   15     0   78  212        1  1  1    "parietal cingulate L"
+   16    28  209  194        1  1  1    "parietal L"
+   17   207  205   24        1  1  1    "corpus callosum R"
+   18     0   73  205        1  1  1    "corpus callosum L"
+   19   201   17   27        1  1  1    "temp L"
+   20    34  199  113        1  1  1    "frontal cingulate R"
+   21    38  198    0        1  1  1    "frontal cingulate L"
+   22   161   16  194        1  1  1    "PreFrontal R"
+   23    45  192   64        1  1  1    "PreFrontal L"
+   24   255  255  255        1  1  1    "PreFrontal cingulate R"
+   25   255  255    0        1  1  1    "PreFrontal cingulate L"
