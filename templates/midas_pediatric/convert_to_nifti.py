@@ -1,5 +1,5 @@
 #!/bin/python3
-"""
+__description__ = """
 Transforming NRRD into NIFTI images
 ===================================
 
