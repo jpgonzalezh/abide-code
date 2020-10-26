@@ -34,7 +34,6 @@ class ANTSPipeline:
     def run_command_if_file_not_exist(command, filename):
         if not isfile(filename):
             print('\t', command)
-            input(f'File: {filename} {isfile(filename)}')
             os.system(command)
         else:
             print('Seems like command was already executed.\n\n')
@@ -50,7 +49,7 @@ class ANTSPipeline:
         input_file = self.nii
         output_file = self.out_files['n4_corrected']
 
-        command = f'N4BiasFieldCorrection --d 3  ' \
+        command = f'N4BiasFieldCorrection -d 3  ' \
                   f'-i {input_file} ' \
                   f'-o {output_file}'
         self.run_command_if_file_not_exist(command, output_file)
@@ -128,10 +127,11 @@ class ANTSPipeline:
 
 if __name__ == '__main__':
     nii_file = '/user/ssilvari/home/Downloads/ABIDE/ABIDE-I/scan_data001/olin/dicom/allegra/mmilham/abide_28730' \
-               '/A00032284/352496274_session_1/mprage_0001/MPRAGE.nii.gz '
+               '/A00032284/352496274_session_1/mprage_0001/MPRAGE.nii.gz'
     output_folder = '/tmp/dummy_subject'
 
     print(ROOT)
+    input('Continue?')
     # exit()
 
     # Create pipeline
