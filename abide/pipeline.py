@@ -1,3 +1,4 @@
+import shutil
 import os
 from os.path import join, isfile, dirname, basename, realpath
 
@@ -69,7 +70,9 @@ class ANTSPipeline:
         command = f'antsRegistrationSyNQuick.sh -d 3 ' \
                   f'-f {self.template} ' \
                   f'-m {input_file} ' \
-                  f'-o {output_file_base} -t a'
+                  f'-o {output_file_base} ' \
+                  f'-j 1 ' \
+                  f'-t a'
         self.run_command_if_file_not_exist(command, output_file)
 
     def skull_stripping(self, tool='robex'):
@@ -124,6 +127,20 @@ class ANTSPipeline:
                       f'-o {output_file}'
             self.run_command_if_file_not_exist(command, output_file)
 
+    def intensity_normalization(self):
+        input_file = self.out_files['stripped']
+        output_file = join(self.output_folder, 'stripped_normalized.nii.gz')
+
+        # Normalize intensities to [0, 1]
+        command = f'ImageMath 3 {output_file} Normalize {input_file}'
+        self.run_command_if_file_not_exist(command, output_file)
+
+    def cleanup(self):
+        """Removes unnecessary files"""
+        files_to_remove = ['rigidInverseWarped.nii.gz', 'template_transformInverseWarped.nii.gz']
+        for f in files_to_remove:
+            os.remove(join(self.output_folder, f))
+
 
 if __name__ == '__main__':
     nii_file = '/user/ssilvari/home/Downloads/ABIDE/ABIDE-I/scan_data001/olin/dicom/allegra/mmilham/abide_28730' \
@@ -141,3 +158,5 @@ if __name__ == '__main__':
     pipeline.skull_stripping()
     pipeline.elastic_registration_from_template_to_subject()
     pipeline.apply_template_transform_to_atlas()
+    pipeline.intensity_normalization()
+    pipeline.cleanup()
